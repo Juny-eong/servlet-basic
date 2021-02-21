@@ -1,4 +1,5 @@
 new file
 new file 2
 
-fix: merge
+fix: merge - new-master commit
+add 1
