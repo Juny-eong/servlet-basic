@@ -1,4 +1,4 @@
-package etc;
+package dynamicProgramming;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
