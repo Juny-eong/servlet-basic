@@ -7,13 +7,16 @@ import java.util.StringTokenizer;
 public class Q1463 {
 	
 	/**
-	 * 아래 내용 순차적으로 반복
-	 * 	1) 3으로 나누어지면 나눈다
-	 * 	2) 나누어지지 않은 경우, -1을 한 값이 3으로 나누어지면 뺀다.
-	 * 	3) (2)가 해당되지 않으면 2로 나눈다.
-	 * 	4) -1 한다.
+	 * Bottom-Up 점화식
+	 * dp[N] 은 N을 1로 만들기 위한 최소 횟수
+	 * 0, 1은 연산 횟수 0으로 제외
+	 * 2부터 	dp[N] = dp[N-1] + 1
+	 * 		dp[N] = dp[N/2] + 1
+	 * 		dp[N] = dp[N/3] + 1
 	 * 
-	 * 	**** -1 -> /3 의 경우 보다, /2 -> /2 의 경우가 우선되어야 한다. ****
+	 * 셋 중, 가장 작은 값을 dp[N]에 저장한다. --> N이 1이 되
+	 * 
+	 * 
 	 */
 
 	
@@ -24,37 +27,20 @@ public class Q1463 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
 		int input = Integer.parseInt(st.nextToken());
-		int cnt = 0;
+
+		int dp[] = new int[input + 1];
 		
-		while (input != 1) {
-			if (input % 3 == 0) {
-				input /= 3;
-				cnt++;
-				continue;
-			}
-			else if (((float)input / 2) % 2 == 0) { // 4로 나누어지는 경우
-				input /= 2;
-				cnt++;
-				continue;
-			}
-			else if ((input - 1) % 3 == 0) { // -1 한 값이 3으로 나누어지는 경우
-				input -= 1;
-				cnt++;
-				continue;
-			}
-			else if (input % 2 == 0) {
-				input /= 2;
-				cnt++;
-				continue;
-			}
-			else {
-				input -= 1;
-				cnt++;
-			}
+		dp[0] = 0;
+		dp[1] = 0;
+		
+		for (int i = 2; i <= input; i++) {
+			dp[i] = dp[i-1] + 1;
+			if (i % 2 == 0) dp[i] = Math.min(dp[i], dp[i/2] + 1); 
+			if (i % 3 == 0) dp[i] = Math.min(dp[i], dp[i/3] + 1);
 		}
+		System.out.println(dp[input]);
 		
-		System.out.println(cnt);
-		
-		
+		br.close();
+
 	}
 }

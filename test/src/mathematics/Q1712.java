@@ -33,5 +33,6 @@ public class Q1712 {
 			System.out.println(  (A/(C-B)) + 1  );
 		}
 		
+		br.close();
 	}
 }
