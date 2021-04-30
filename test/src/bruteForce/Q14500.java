@@ -26,6 +26,7 @@ public class Q14500 {
 		map = new int[N][M];
 		visited = new boolean[N][M];
 		max = 0;
+		
 
 		/* input으로 맵 생성 */
 		for (int i = 0; i < N; i++) {
