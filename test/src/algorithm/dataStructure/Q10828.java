@@ -1,4 +1,4 @@
-package dataStructure;
+package algorithm.dataStructure;
 
 import java.io.BufferedReader;
 import java.io.IOException;
