@@ -99,23 +99,6 @@ public class Q14500 {
 		}
 		max = Math.max(max, sum);
 	}
-	
-	public static int[] getMaxValue(int[][] map, int y, int x) {
-		
-		int tmp[] = new int[2];
-		int leftValue = 0;
-		int rightValue = 0;
-		int upValue = 0;
-		int downValue = 0;
-		
-		if (x > 0) leftValue = map[y][x-1];
-		if (x < N) rightValue = map[y][x+1];
-		if (y > 0) upValue = map[y-1][x];
-		if (y < M) downValue = map[y+1][x];
-		
 
-		return tmp;
-
-	}
 
 }
