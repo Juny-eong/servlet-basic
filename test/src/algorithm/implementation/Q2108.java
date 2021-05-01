@@ -11,7 +11,6 @@ public class Q2108 {
 	public static void main(String[] args) throws Throwable {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
 		
 		int N = Integer.parseInt(br.readLine());
 		int[] arr = new int[8001]; // 0 ~ 8000
