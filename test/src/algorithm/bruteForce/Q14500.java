@@ -113,27 +113,7 @@ public class Q14500 {
 		if (y > 0) upValue = map[y-1][x];
 		if (y < M) downValue = map[y+1][x];
 		
-		int subMax1 = Math.max(leftValue, rightValue);
-		int subMax2 = Math.max(upValue, downValue);
-		int max = Math.max(subMax1, subMax2);
-		
-		if (max == leftValue) {
-			tmp[0] = y; 
-			tmp[1] = x-1;
-		}
-		else if (max == rightValue) {
-			tmp[0] = y;
-			tmp[1] = x+1;
-		}
-		else if (max == upValue) {
-			tmp[0] = y-1;
-			tmp[1] = x;
-		}
-		else {
-			tmp[0] = y + 1;
-			tmp[1] = x;
-		}
-		
+
 		return tmp;
 
 	}
