@@ -1,4 +1,4 @@
-package algorithm.dynamicProgramming;
+package algorithm.dynamicprogramming;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

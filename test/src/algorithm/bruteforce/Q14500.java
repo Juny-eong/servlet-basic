@@ -1,4 +1,4 @@
-package algorithm.bruteForce;
+package algorithm.bruteforce;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
