@@ -13,14 +13,14 @@ public class Main {
 		
 		edgeList = new ArrayList<Edge>();
 		edgeList.add(new Edge(1, 4, 4));
-        edgeList.add(new Edge(1, 2, 6));
-        edgeList.add(new Edge(2, 3, 5));
-        edgeList.add(new Edge(2, 4, 3));
-        edgeList.add(new Edge(2, 5, 7));
-        edgeList.add(new Edge(2, 6, 8));
-        edgeList.add(new Edge(3, 6, 8));
-        edgeList.add(new Edge(4, 5, 9));
-        edgeList.add(new Edge(5, 6, 11));
+		edgeList.add(new Edge(1, 2, 6));
+		edgeList.add(new Edge(2, 3, 5));
+		edgeList.add(new Edge(2, 4, 3));
+		edgeList.add(new Edge(2, 5, 7));
+		edgeList.add(new Edge(2, 6, 8));
+		edgeList.add(new Edge(3, 6, 8));
+		edgeList.add(new Edge(4, 5, 9));
+		edgeList.add(new Edge(5, 6, 11));
         
         parent = new int[7]; // node list
         for (int i = 1; i <= 6; i++) {
