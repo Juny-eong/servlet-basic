@@ -59,6 +59,8 @@ public class Q1260 {
 		Arrays.fill(visit, false);
 		
 		bfs(V);
+		
+		br.close();
 	}
 	
 	
