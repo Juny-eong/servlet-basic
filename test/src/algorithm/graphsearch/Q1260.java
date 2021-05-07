@@ -30,6 +30,7 @@ public class Q1260 {
 		M = Integer.parseInt(st.nextToken());
 		V = Integer.parseInt(st.nextToken());
 		
+		/* input 정점의 시작이 0이 아닌 1 이므로 맞추기 위해 N+1 */
 		map = new int[N + 1][N + 1];
 		visit = new boolean[N + 1];
 		
@@ -39,6 +40,7 @@ public class Q1260 {
 		Arrays.fill(visit, false);
 		
 		
+		/* 간선 연결 상태 저장 */
 		for (int i = 0; i < M; i++) {
 
 			st = new StringTokenizer(br.readLine());
@@ -46,8 +48,9 @@ public class Q1260 {
 			int a = Integer.parseInt(st.nextToken());
 			int b = Integer.parseInt(st.nextToken());
 			
-			map[a][b] = 1;
-			map[b][a] = 1;
+			
+			map[a][b] = 1; // a가 b와 연결되어 있다면
+			map[b][a] = 1; // b도 a와 연결되어 있다
 		}
 		
 		dfs(V);
@@ -74,14 +77,22 @@ public class Q1260 {
 	public static void bfs(int i) {
 		
 		Queue<Integer> q = new LinkedList<>();
+		
+		/* 출발점을 queue에 넣고 방문 기록 */
 		q.offer(i);
 		visit[i] = true;
 		
+		/* queue가 빌 때까지 수행 */
 		while(!q.isEmpty()) {
+			
+			/* 하나씩 뽑아 확인한다 */
 			int temp = q.poll();
 			System.out.print(temp + " ");
 			
+			/* queue에서 뽑은 정점과 연결된 모든 정점을 체크 */
 			for (int k = 1; k < N + 1; k++) {
+				
+				/* 연결되어있고 방문한 적 없는 정점의 경우 queue에 넣고 방문 기록 */
 				if(map[temp][k] == 1 && visit[k] == false) {
 					q.offer(k);
 					visit[k] = true;
