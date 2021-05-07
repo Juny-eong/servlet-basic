@@ -39,6 +39,8 @@ public class Q2178 {
 		
 		/* 마지막 칸에 쓰인 수 (시작점부터의 거리) */
 		System.out.println(map[N - 1][M - 1]);
+		
+		br.close();
 	}
 	
 	public static void bfs(int x, int y) {
