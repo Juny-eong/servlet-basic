@@ -9,6 +9,10 @@ import java.util.StringTokenizer;
 
 public class Q2178 {
 	
+	/**
+	 * 미로찾기
+	 */
+	
 	static int[] dx = { 1, 0, -1, 0 };
 	static int[] dy = { 0, 1, 0, -1 };
 	static int[][] map;
