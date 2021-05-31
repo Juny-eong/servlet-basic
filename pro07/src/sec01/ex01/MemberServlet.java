@@ -55,8 +55,9 @@ public class MemberServlet extends HttpServlet {
 					
 								 + email + "</td><td>" + joinDate + "</td></tr>");
 			
-			out.print("</table></body></html>");
 		}
+		
+		out.print("</table></body></html>");
 	}
 
 }
