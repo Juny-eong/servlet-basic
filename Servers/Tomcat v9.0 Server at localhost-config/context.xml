@@ -31,7 +31,7 @@
     	auth="Container"
     	type="javax.sql.DataSource"
     	driverClassName="oracle.jdbc.OracleDriver"
-    	url="jdvc:oracle:thin:@localhost:1521:XE"
+    	url="jdbc:oracle:thin:@localhost:1521:XE"
     	username="scott"
     	password="tiger"
     	maxActive="50"
