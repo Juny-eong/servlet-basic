@@ -1,4 +1,4 @@
-package sec01.ex01;
+package binding;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,11 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SecondServlet
+ * Servlet implementation class BindingServlet2
  */
-@WebServlet("/second")
-public class SecondServlet extends HttpServlet {
-	
+@WebServlet("/binding/second")
+public class BindingServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -22,18 +21,17 @@ public class SecondServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println(request.getRequestURL());
+		
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
-		out.println("<html><body>");
+		String data = (String) request.getAttribute("data");
 		
-		if (  "dispatch".equals(request.getParameter("type"))  ) {
-			out.println("forwarding test by using dispatcher method");
-		}
-		else {
-			
-			out.println("redirect test by using sendRedirect method");
-		}
+		out.println("<html><body>");
+		out.println("data : " + data);
+		out.println("<br>");
 		out.println("</html></body>");
 	}
 
