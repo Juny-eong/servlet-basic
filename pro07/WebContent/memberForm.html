@@ -6,11 +6,11 @@
 	<script type="text/javascript">
 	
 		function fn_sendMember(){
-			var frmMember=document.frmMember;
-			var id=frmMember.id.value;
-			var pwd=frmMember.pwd.value;
-			var name=frmMember.name.value;
-			var email=frmMember.email.value;
+			var frmMember = document.frmMember;
+			var id = frmMember.id.value;
+			var pwd = frmMember.pwd.value;
+			var name = frmMember.name.value;
+			var email = frmMember.email.value;
 			
 			if(id.length == 0 ||id == "") {
 			   alert("아이디는 필수입니다.");
@@ -25,8 +25,8 @@
 			   alert("이메일은 필수입니다.");
 			}
 			else {
-			   frmMember.method="post";
-			   frmMember.action="member3";
+			   frmMember.method = "post";
+			   frmMember.action = "member3";
 			   frmMember.submit();
 			} 
 		}

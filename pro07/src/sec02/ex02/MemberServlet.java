@@ -3,8 +3,6 @@ package sec02.ex02;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -16,7 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/member3")
 public class MemberServlet extends HttpServlet {
-	
+
+	private static final long serialVersionUID = 1L;
+
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
 	}
@@ -38,10 +39,10 @@ public class MemberServlet extends HttpServlet {
       
       if (command != null && command.equals("addMember")) {
     	  
-		 String _id=request.getParameter("id");
-		 String _pwd=request.getParameter("pwd");
-		 String _name=request.getParameter("name");
-		 String _email=request.getParameter("email");
+		 String _id = request.getParameter("id");
+		 String _pwd = request.getParameter("pwd");
+		 String _name = request.getParameter("name");
+		 String _email = request.getParameter("email");
 		 
 		 MemberVO vo=new MemberVO();
 		 vo.setId(_id);
@@ -54,7 +55,8 @@ public class MemberServlet extends HttpServlet {
     	  String id = request.getParameter("id");
     	  dao.delMember(id);
       }
-      List list=dao.listMembers();
+      
+      List<MemberVO> list = dao.listMembers();
       
       out.print("<html><body>");
       out.print("<table border=1><tr align='center' bgcolor='lightgreen'>");
@@ -62,8 +64,8 @@ public class MemberServlet extends HttpServlet {
     
       for (int i = 0; i < list.size(); i++) {
     	  
- 		MemberVO memberVO = (MemberVO) list.get(i);
- 		String id=memberVO.getId();
+ 		MemberVO memberVO = list.get(i);
+ 		String id = memberVO.getId();
  		String pwd = memberVO.getPwd();
  		String name = memberVO.getName();
  		String email =memberVO.getEmail();
