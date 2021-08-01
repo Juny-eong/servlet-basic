@@ -1,6 +1,7 @@
-package etc;
+package etc.io.file;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,8 +22,11 @@ public class TestReader {
 		
 //		saveData(".\\src\\etc\\book.dat");
 
-		saveByteData("123 qweasd&*(", "./test.txt");
-		loadByteData("./test.txt");
+//		saveByteData("123 qweasd&*(", "./test.txt");
+//		loadByteData("./test.txt");
+		
+		File file = new File("./test.txt");
+		System.out.println(file.exists());
 		
 		System.out.println("====== main method end. ======");
 	}
