@@ -18,8 +18,9 @@ public class SerializableReader {
 			System.out.println("classA.getEntry : " + deserializedClassA.getEntry());
 			System.out.println("classA.transientField : " + deserializedClassA.transientField);
 			System.out.println("classA.classB : " + deserializedClassA.classB.getClass());
-			System.out.println("classB.getField2 : " + deserializedClassA.classB.getField2());
-			
+			System.out.println("classB.getClassBField : " + deserializedClassA.classB.getClassBField());
+			System.out.println("classB.getNonSerializableClassField : " 
+						+ deserializedClassA.classB.getNonSerializableClassfield());
 		}
 		else {
 			ois.close();

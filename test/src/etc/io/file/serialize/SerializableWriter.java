@@ -11,8 +11,9 @@ public class SerializableWriter {
 		FileOutputStream fos = new FileOutputStream(filePath);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		
-		TestClassA<String, Integer> testClassA = new TestClassA<>("classA", 123);
-		testClassA.classB.setField2(22222);
+		TestClassA<String, Integer> testClassA = new TestClassA<>("classA", 12345);
+		testClassA.classB.setClassBField("classB field value");
+		testClassA.classB.setNonSerializableClassfield("non-serialized class field value");
 		
 		oos.writeObject(testClassA);
 		oos.flush();
