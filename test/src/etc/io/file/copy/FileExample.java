@@ -1,4 +1,4 @@
-package etc.io.file;
+package etc.io.file.copy;
 
 import java.io.BufferedReader;
 import java.io.File;

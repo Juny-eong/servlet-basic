@@ -1,8 +1,9 @@
-package etc.io.file;
+package etc.io.file.copy;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 
 public class FileManager {
 
@@ -34,7 +35,7 @@ public class FileManager {
 		
 		if (targetFile.getParentFile() != null) {
 			
-			/* ÇØ´ç ÆÄÀÏ±îÁöÀÇ °æ·Î°¡ ¾ø´Â °æ¿ì »õ·Î »ý¼º */
+			/* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 			if (  !targetFile.getParentFile().exists()  ) {
 				targetFile.getParentFile().mkdirs();
 				System.out.println("[FileManager] - create new directory : \t\t" + targetFile.getParentFile().getAbsolutePath());
@@ -62,7 +63,7 @@ public class FileManager {
 		fos.close();
 		fis.close();
 		
-		/* »ý¼ºµÈ ÆÄÀÏ °´Ã¼·Î ¼º°ø¿©ºÎ È®ÀÎ */
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ */
 		File file = new File(targetFile.getPath());
 		if (  file.exists()  ) {
 			float size = (float) file.length() / 1024;
@@ -73,6 +74,24 @@ public class FileManager {
 			throw new RuntimeException("[FileManager] - failed to copy file.");
 		}
 		
+	}
+	
+	
+	public void loadByteData(String filePath) {
+		
+		try (  InputStream is = new FileInputStream(filePath)  ) {
+			
+			System.out.println("------ read data start ------");
+			byte[] data = is.readAllBytes();
+			System.out.println("data[] length = " + data.length);
+			System.out.println(new String(data));
+			
+			System.out.println("------ read data end ------");
+			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
