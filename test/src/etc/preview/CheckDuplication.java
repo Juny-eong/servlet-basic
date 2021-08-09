@@ -1,7 +1,7 @@
-package etc;
+package etc.preview;
 
 
-public class test01 {
+public class CheckDuplication {
 
     public static void main(String[] args) {
         
