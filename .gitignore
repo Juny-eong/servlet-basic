@@ -1,2 +1,4 @@
-/test/
-/.idea/
+out/
+bin/
+.idea/
+*.iml
