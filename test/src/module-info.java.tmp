@@ -3,6 +3,7 @@ module test {
 	exports algorithm.implementation;
 	exports algorithm.bruteforce;
 	exports algorithm.mathematics;
+
 	exports basic;
 	exports algorithm.datastructure;
 }
