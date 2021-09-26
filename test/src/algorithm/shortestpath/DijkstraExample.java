@@ -12,7 +12,7 @@ public class DijkstraExample {
     static final int INF = Integer.MAX_VALUE;
     static boolean[] isVisited;
     static ArrayList<Node>[] graph;
-    static int[] lc;
+    static int[] costTable;
     static int N;
     static int M;
     static int start;
@@ -27,8 +27,8 @@ public class DijkstraExample {
 
         isVisited = new boolean[N + 1]; // visit-log of each node
         graph = new ArrayList[N + 1]; // node array
-        lc = new int[N + 1]; // lowest cost to visit each node
-        Arrays.fill(lc, INF);
+        costTable = new int[N + 1]; // lowest cost to visit each node
+        Arrays.fill(costTable, INF);
 
         /* initialize graph */
         for (int i = 0; i < N + 1; i++) {
@@ -46,11 +46,11 @@ public class DijkstraExample {
         dijkstra(start);
 
         for (int i = 0; i < N + 1; i++) {
-            if (lc[i] == INF) {
+            if (costTable[i] == INF) {
                 System.out.println(-1);
             }
             else {
-                System.out.println(lc[i]);
+                System.out.println(costTable[i]);
             }
             
         }
@@ -61,8 +61,8 @@ public class DijkstraExample {
         int temp = INF;
         int index = 0;
         for (int i = 1; i <= N; i++) {
-            if (lc[i] < INF && !isVisited[i]) {
-                temp = lc[i];
+            if (costTable[i] < temp && !isVisited[i]) {
+                temp = costTable[i];
                 index = i;
             }
         }
@@ -72,13 +72,13 @@ public class DijkstraExample {
     static void dijkstra(int start) {
 
         /* 1. set start & visit check */
-        lc[start] = 0;
+        costTable[start] = 0;
         isVisited[start] = true;
 
         /*  */
         for (int i = 0; i < graph[start].size(); i++) {
             Node tmp = graph[start].get(i);
-            lc[tmp.index] = tmp.cost;
+            costTable[tmp.index] = tmp.cost;
         }
 
         for (int i = 0; i < N - 1; i++) {
@@ -89,10 +89,10 @@ public class DijkstraExample {
                 Node tempNode = graph[now].get(j);
 
                 int node = tempNode.index;
-                int cost = lc[now] + tempNode.cost;
+                int cost = costTable[now] + tempNode.cost;
 
-                if (cost < lc[node]) {
-                    lc[node] = cost;
+                if (cost < costTable[node]) {
+                    costTable[node] = cost;
                 }
             }
         }
