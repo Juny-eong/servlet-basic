@@ -33,23 +33,34 @@ public class Q2667 {
             for (int j = 0; j < N; j++) {
                 if (map[i][j] == 1 && !isVisited[i][j]) {
                     answerList.add(bfs(i, j));
+                    setCount++;
                 }
             }
         }
 
-        System.out.println(setCount - 1);
+        System.out.println(answerList.size());
         Collections.sort(answerList);
         for (int i = 0; i < answerList.size(); i++) {
             System.out.println(answerList.get(i));
         }
 
+        System.out.println("------");
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(map[i][j] + " ");
+            }
+            System.out.println();
+        }
+
     }
 
     static int bfs(int x, int y) {
-        Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[] {x, y});
-        isVisited[x][y] = true;
         int answer = 0;
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{x, y});
+        isVisited[x][y] = true;
+        map[x][y] = setCount;
 
         while (!queue.isEmpty()) {
             int[] point = queue.poll();
@@ -60,9 +71,9 @@ public class Q2667 {
                 int newY = point[1] + dy[i];
 
                 if (0 <= newX && newX < N && 0 <= newY && newY < N
-                        && map[newX][newY] == 1
+                        && map[newX][newY] != 0
                         && !isVisited[newX][newY]) {
-                    System.out.println(newX + " " + newY);
+                    map[newX][newY] = setCount;
                     queue.offer(new int[] {newX, newY});
                     isVisited[newX][newY] = true;
                 }
@@ -70,4 +81,5 @@ public class Q2667 {
         }
         return answer;
     }
+
 }
